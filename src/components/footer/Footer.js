@@ -1,3 +1,5 @@
+import { navigation } from "../data/data.js";
+
 function Footer() {
   return (
     <footer className="mt-16 bg-gray-600 text-white p-8">
@@ -19,21 +21,16 @@ function Footer() {
         </div>
         <div className="hidden lg:flex lg:items-center ">
           <ul className="flex gap-8 text-lg">
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Home</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Shop</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">About</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Contact</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Blog</a>
-            </li>
+            {navigation.map((data) => {
+              return (
+                <li
+                  key={data.name}
+                  className="border-b-4 border-transparent hover:border-black"
+                >
+                  <a href={data.url}>{data.name}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <div className="w-full lg:flex lg:justify-center lg:items-center  text-center lg:text-right">

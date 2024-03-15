@@ -1,6 +1,7 @@
 import user from "../icons/user.svg";
 import cart from "../icons/cart.svg";
 import menu from "../icons/menu.svg";
+import { navigation } from "../data/data.js";
 
 function Header() {
   return (
@@ -14,21 +15,16 @@ function Header() {
 
         <div>
           <ul className="hidden lg:flex gap-8 text-lg">
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Home</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Shop</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">About</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Contact</a>
-            </li>
-            <li className="border-b-4 border-transparent hover:border-black">
-              <a href="/">Blog</a>
-            </li>
+            {navigation.map((data) => {
+              return (
+                <li
+                  key={data.name}
+                  className="border-b-4 border-transparent hover:border-black"
+                >
+                  <a href={data.url}>{data.name}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 
